@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/home_page_navigation">
+
+    <fragment
+        android:id="@+id/profilePageFragment"
+        android:name="com.sergeenko.themoviedatabase.screens.profile.ProfileFragment"
+        android:label="ProfilePageFragment" />
+
+    <action android:id="@+id/home_page" app:destination="@id/home_page_navigation"/>
+
+    <action android:id="@+id/profile_page" app:destination="@id/profilePageFragment"/>
+
+    <action android:id="@+id/search_page" app:destination="@id/searh_page_navigation"/>
+
+    <navigation android:id="@+id/home_page_navigation"
+        app:startDestination="@id/homePageFragment">
+        <fragment
+            android:id="@+id/homePageFragment"
+            android:name="com.sergeenko.themoviedatabase.screens.home.HomePageFragment"
+            android:label="HomePageFragment" />
+
+        <fragment
+            android:id="@+id/detailedFragment"
+            android:name="com.sergeenko.themoviedatabase.screens.detailed_screen.DetailedFragment"
+            android:label="DetailedFragment" />
+
+        <action android:id="@+id/action_global_detailedFragment"
+            app:destination="@id/detailedFragment"/>
+    </navigation>
+
+
+    <navigation android:id="@+id/searh_page_navigation"
+        app:startDestination="@id/searchPageFragment">
+        <fragment
+            android:id="@+id/searchPageFragment"
+            android:name="com.sergeenko.themoviedatabase.screens.search.SearchFragment"
+            android:label="SearchPageFragment" />
+
+        <fragment
+            android:id="@+id/detailedFragment"
+            android:name="com.sergeenko.themoviedatabase.screens.detailed_screen.DetailedFragment"
+            android:label="DetailedFragment" />
+
+        <action android:id="@+id/action_global_detailedFragment"
+            app:destination="@id/detailedFragment"/>
+    </navigation>
+
+
+</navigation>

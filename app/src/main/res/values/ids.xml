@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="showItemId" type="id" />
+    <item name="loadingItemId" type="id" />
+    <item name="errorItemId" type="id" />
+    <item name="emptyShowItemId" type="id" />
+    <item name="refreshItemId" type="id" />
+    <item name="titleItemId" type="id" />
+</resources>

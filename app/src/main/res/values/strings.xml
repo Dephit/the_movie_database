@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">The Movie Database</string>
+    <string name="home_page_menu_title">Home</string>
+    <string name="search_page_menu_title">Search</string>
+    <string name="profile_page_menu_title">Profile</string>
+    <string name="search_hint">show name...</string>
+    <string name="genre_title">Genres:</string>
+    <string name="length">Length is %s minutes</string>
+    <string name="release_date">Release date is %s</string>
+    <string name="click_to_refresh">No Items Found\nClick to refresh</string>
+    <string name="movies">Movies</string>
+    <string name="tvs">Tvs</string>
+</resources>
