@@ -30,11 +30,14 @@ class SearchViewModel @Inject constructor(
     fun onSearchResult(): Flow<SearchScreenState> = searchListFlow
 
     init {
-        viewModelScope.launch {
+        viewModelScope.launch(IO) {
             searchFlow
                 .debounce(500)
                 .distinctUntilChanged()
-                .collectLatest { answer ->
+                .collect { answer ->
+                    if(answer.isEmpty()){
+                        return@collect
+                    }
                     val movies = searchRepository.findMoviesByName(answer)
                     val tvs = searchRepository.findTvsByName(answer)
 
@@ -46,7 +49,6 @@ class SearchViewModel @Inject constructor(
                 }
         }
     }
-
 
     private suspend fun setNewState(
         isLoading: Boolean = false,
@@ -64,10 +66,11 @@ class SearchViewModel @Inject constructor(
     }
 
     fun searchShow(name: String){
-        viewModelScope.launch(IO) {
-            setNewState(isLoading = true)
-            searchFlow.emit(name)
+        if(name.isNotEmpty()){
+            viewModelScope.launch(IO) {
+                setNewState(isLoading = true)
+                searchFlow.emit(name)
+            }
         }
-
     }
 }

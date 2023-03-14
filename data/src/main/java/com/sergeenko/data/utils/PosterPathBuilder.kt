@@ -1,7 +1,5 @@
 package com.sergeenko.data.utils
 
-import android.util.Log
-
 
 class PosterPathBuilder{
 

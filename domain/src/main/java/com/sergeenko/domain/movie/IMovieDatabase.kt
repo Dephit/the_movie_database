@@ -8,5 +8,7 @@ interface IMovieDatabase {
     fun popularMoviesFlow(): List<ShowModel>
 
     suspend fun addPopularMovies(body: List<ShowModel>)
+
+    fun getPopularMovies(currentPage: Int): List<ShowModel>?
 }
 

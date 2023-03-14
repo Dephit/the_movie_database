@@ -12,7 +12,7 @@ data class ShowModel(
     val mediaType: MediaType
 ): java.io.Serializable {
 
-    fun toDetailedMovie(): DetailedMovieModel? {
+    fun toDetailedMovie(): DetailedMovieModel {
         return  DetailedMovieModel(
             id = id,
             title = title,

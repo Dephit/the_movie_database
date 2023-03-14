@@ -13,4 +13,8 @@ class MovieDataBase: IMovieDatabase {
     override suspend fun addPopularMovies(body: List<ShowModel>) {
 
     }
+
+    override fun getPopularMovies(currentPage: Int): List<ShowModel>? {
+        return null
+    }
 }

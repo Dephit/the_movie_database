@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.graphics.component1
+import androidx.core.graphics.component2
 import androidx.core.os.bundleOf
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
@@ -69,7 +71,6 @@ class SearchFragment: Fragment() {
             adapter = fastAdapter
         }
 
-
         fastAdapter.onClickListener = { v, adapter, item, position ->
             when(item){
                 is SearchShowItem -> {
@@ -87,7 +88,7 @@ class SearchFragment: Fragment() {
     }
 
     private fun observe() {
-        lifecycleScope.launchWhenResumed {
+        lifecycleScope.launchWhenStarted {
             viewModel.onSearchResult()
                 .collectLatest{
                     addNewItems(it)
@@ -100,10 +101,18 @@ class SearchFragment: Fragment() {
         tvAdapter.clear()
         when {
             state.isLoading -> {
-                loadingAdapter.setNewList(List(12){EmptySearchShowItem()})
+                loadingAdapter.setNewList(
+                    List(12){
+                        EmptySearchShowItem()
+                    }
+                )
             }
             state.error != null -> {
-                loadingAdapter.setNewList(listOf(ErrorItem(state.error.message)))
+                loadingAdapter.setNewList(
+                    listOf(
+                        ErrorItem(state.error.message)
+                    )
+                )
             }
             else -> {
                 loadingAdapter.clear()
@@ -120,7 +129,6 @@ class SearchFragment: Fragment() {
                 }
             }
         }
-
     }
 }
 
