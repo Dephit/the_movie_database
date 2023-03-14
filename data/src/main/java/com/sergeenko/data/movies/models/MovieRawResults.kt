@@ -27,13 +27,13 @@ data class MovieRawResults (
 ) {
     fun toShowModel() = ShowModel(
             id = id ?: 0,
-            title = title!!,
+            title = title ?: "",
             year = releaseDate ?: "",
             length = 0,
             genres = genreIds,
             posterPath = PosterPathBuilder()
                 .build(posterPath),
-            overview = overview!!,
+            overview = overview ?: "",
             actors = listOf(),
             mediaType = MediaType.Movie
         )
